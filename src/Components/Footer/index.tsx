@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) =>({
     color: '#fff',
   },
   typography: {
-    widht: 20,    
+    textAlign: 'center',
   }, 
  }));
 
