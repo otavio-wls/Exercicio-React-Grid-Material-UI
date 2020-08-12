@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
   root: {
     maxWidth: '100%',
-    marginTop: 120,
+    marginTop: 30,
   },
   title: {
     fontSize: 14,
@@ -148,7 +148,7 @@ export default function Specialties() {
           <img src={Cardio} alt='cardiologista' className={classes.img}/>
         </CardContent>
         <CardActions>
-        <Link to={'especialidades/cardio'}><Button size="small">Agende sua Consulta</Button></Link>
+        <Link to={'/especialidades/cardio'}><Button size="small">Agende sua Consulta</Button></Link>
         </CardActions>
       </Card>
       </Grid>

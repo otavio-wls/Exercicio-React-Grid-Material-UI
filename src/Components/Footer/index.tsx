@@ -9,9 +9,9 @@ const useStyles = makeStyles((theme) =>({
     color: '#fff',
   },
   typography: {
-    textAlign: 'center',
-  }
-}));
+    widht: 20,    
+  }, 
+ }));
 
 export default function Footer() {
   const classes = useStyles();
@@ -20,7 +20,8 @@ export default function Footer() {
       <CssBaseline />
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1" className={classes.typography}>My sticky footer can be found here.</Typography>
+          <Typography variant="body1" className={classes.typography}>Clinica Saúde 10</Typography>
+          
         </Container>
       </footer>
     </div>
