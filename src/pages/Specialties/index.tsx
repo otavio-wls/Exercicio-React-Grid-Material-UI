@@ -2,14 +2,14 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/index';
 import Footer from '../../Components/Footer/index';
-import { Card, CardActions, CardContent, Button, Typography, makeStyles, Grid } from '@material-ui/core';
-import Cardio from '../../assets/cardio.png';
-import Pediatra from '../../assets/pediatra.png';
-import Odonto from '../../assets/odonto.png';
-import Oftalmo from '../../assets/oftalmo.png';
-import Quiropraxia from '../../assets/quiro.png';
-import Endocrino from '../../assets/endocrino.png';
-import Fisio from '../../assets/fisio.png';
+import { Card, CardContent, Button, Typography, makeStyles, Grid } from '@material-ui/core';
+import cardio from '../../assets/cardio.png';
+import pediatra from '../../assets/pediatra.png';
+import odonto from '../../assets/odonto.png';
+import oftalmo from '../../assets/oftalmo.png';
+import quiropraxia from '../../assets/quiro.png';
+import endocrino from '../../assets/endocrino.png';
+import fisio from '../../assets/fisio.png';
 
 const useStyles = makeStyles({
   styleGridContainer:{
@@ -29,9 +29,14 @@ const useStyles = makeStyles({
   },
   img: {
     marginTop: 10,
+    marginLeft: '28%',
     width: 100,
     height: 100,
-  }  
+  },
+  button: {
+    marginLeft: '20%',
+    marginBottom: 15
+  }
 });
 
 export default function Specialties() {
@@ -39,7 +44,7 @@ export default function Specialties() {
   return(
     <Fragment>
       <Header />
-      <Grid container spacing={2} className={classes.styleGridContainer}>
+    <Grid container spacing={2} className={classes.styleGridContainer}>
       <Grid item lg={3} md={4} sm={6} xs={12}>
         <Card className={classes.root}>
         <CardContent>
@@ -47,11 +52,11 @@ export default function Specialties() {
           <Typography variant="body2" component="p"> Temos os Melhores Especialistas
           <br />        
           </Typography>
-          <img src={Cardio} alt='cardiologista' className={classes.img}/>
+          <img src={cardio} alt='cardiologista' className={classes.img}/>
         </CardContent>
-        <CardActions>
-          <Button size="small">Agende sua Consulta</Button>
-        </CardActions>
+        <div className={classes.button}>
+        <Link to={'/especialidades/cardio'}><Button size="small">Agende sua Consulta</Button></Link>
+        </div>
       </Card>
       </Grid>
       <Grid item lg={3} md={4} sm={6} xs={12}>
@@ -61,11 +66,11 @@ export default function Specialties() {
           <Typography variant="body2" component="p"> Temos os Melhores Especialistas
           <br />        
           </Typography>
-          <img src={Pediatra} alt='pediatra' className={classes.img}/>
+          <img src={pediatra} alt='pediatra' className={classes.img}/>
         </CardContent>
-        <CardActions>
-        <Button size="small">Agende sua Consulta</Button>
-        </CardActions>
+        <div className={classes.button}>
+        <Link to={'/especialidades/pediatra'}><Button size="small">Agende sua Consulta</Button></Link>
+        </div>
       </Card>
       </Grid>
       <Grid item lg={3} md={4} sm={6} xs={12}>
@@ -75,11 +80,11 @@ export default function Specialties() {
           <Typography variant="body2" component="p"> Temos os Melhores Especialistas
           <br />        
           </Typography>
-          <img src={Odonto} alt='odontologia' className={classes.img}/>
+          <img src={odonto} alt='odontologia' className={classes.img}/>
         </CardContent>
-        <CardActions>
-        <Button size="small">Agende sua Consulta</Button>
-        </CardActions>
+        <div className={classes.button}>
+        <Link to={'/especialidades/odonto'}><Button size="small">Agende sua Consulta</Button></Link>
+        </div>
       </Card>
       </Grid>
       <Grid item lg={3} md={4} sm={6} xs={12}>
@@ -89,11 +94,11 @@ export default function Specialties() {
           <Typography variant="body2" component="p"> Temos os Melhores Especialistas
           <br />        
           </Typography>
-          <img src={Oftalmo} alt='oftalmologista' className={classes.img}/>
+          <img src={oftalmo} alt='oftalmologista' className={classes.img}/>
         </CardContent>
-        <CardActions>
-        <Button size="small">Agende sua Consulta</Button>
-        </CardActions>
+        <div className={classes.button}>
+        <Link to={'/especialidades/oftalmo'}><Button size="small">Agende sua Consulta</Button></Link>
+        </div>
       </Card>
       </Grid>
       <Grid item lg={3} md={4} sm={6} xs={12}>
@@ -103,11 +108,11 @@ export default function Specialties() {
           <Typography variant="body2" component="p"> Temos os Melhores Especialistas
           <br />        
           </Typography>
-          <img src={Quiropraxia} alt='quiropraxia' className={classes.img}/>
+          <img src={quiropraxia} alt='quiropraxia' className={classes.img}/>
         </CardContent>
-        <CardActions>
-        <Button size="small">Agende sua Consulta</Button>
-        </CardActions>
+        <div className={classes.button}>
+        <Link to={'/especialidades/cardio'}><Button size="small">Agende sua Consulta</Button></Link>
+        </div>
       </Card>
       </Grid>
       <Grid item lg={3} md={4} sm={6} xs={12}>
@@ -117,11 +122,11 @@ export default function Specialties() {
           <Typography variant="body2" component="p"> Temos os Melhores Especialistas
           <br />        
           </Typography>
-          <img src={Endocrino} alt='endocrinologista' className={classes.img}/>
+          <img src={endocrino} alt='endocrinologista' className={classes.img}/>
         </CardContent>
-        <CardActions>
-        <Button size="small">Agende sua Consulta</Button>
-        </CardActions>
+        <div className={classes.button}>
+        <Link to={'/especialidades/cardio'}><Button size="small">Agende sua Consulta</Button></Link>
+        </div>
       </Card>
       </Grid>
       <Grid item lg={3} md={4} sm={6} xs={12}>
@@ -131,11 +136,11 @@ export default function Specialties() {
           <Typography variant="body2" component="p"> Temos os Melhores Especialistas
           <br />        
           </Typography>
-          <img src={Fisio} alt='fisioterapia' className={classes.img}/>
+          <img src={fisio} alt='fisioterapia' className={classes.img}/>
         </CardContent>
-        <CardActions>
-        <Button size="small">Agende sua Consulta</Button>
-        </CardActions>
+        <div className={classes.button}>
+        <Link to={'/especialidades/cardio'}><Button size="small">Agende sua Consulta</Button></Link>
+        </div>
       </Card>
       </Grid>
       <Grid item lg={3} md={4} sm={6} xs={12}>
@@ -145,11 +150,11 @@ export default function Specialties() {
           <Typography variant="body2" component="p"> Temos os Melhores Especialistas
           <br />        
           </Typography>
-          <img src={Cardio} alt='cardiologista' className={classes.img}/>
+          <img src={cardio} alt='cardiologista' className={classes.img}/>
         </CardContent>
-        <CardActions>
+        <div className={classes.button}>
         <Link to={'/especialidades/cardio'}><Button size="small">Agende sua Consulta</Button></Link>
-        </CardActions>
+        </div>
       </Card>
       </Grid>
     </Grid>      

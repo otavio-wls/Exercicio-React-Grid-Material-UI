@@ -43,7 +43,5 @@ export default function InfoCardio() {
       </Grid>
       <Footer />      
     </div>
-
-
   );
 }

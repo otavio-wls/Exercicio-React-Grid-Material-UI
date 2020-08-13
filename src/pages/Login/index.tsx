@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
+import api from '../../api/api';
 import Header from '../../Components/Header/index';
 import Footer from '../../Components/Footer/index';
 import { CssBaseline , Container, Typography, makeStyles, TextField, Button } from '@material-ui/core';
+
 
 const useStyles = makeStyles((theme) =>({
   root: {
@@ -30,32 +32,57 @@ const useStyles = makeStyles((theme) =>({
   }
 }))
 
-export default function Login() {
-  const classes = useStyles();
-  return(
-    <Fragment>   
-      <Header />
-      <div className={classes.root}>
-        <CssBaseline />
-        <Container component='main' maxWidth='xs' className={classes.main}>
-          <div className={classes.paper}>
-            <Typography component='h1' variant='h4'>Tela de Login</Typography>
-            <form className={classes.form} noValidate>
-              <TextField variant='outlined' margin='normal' required fullWidth id="email" label="Endereço de Email"
-                name="email"
-                autoComplete="email"
-                autoFocus/>
-              <TextField variant='outlined' margin='normal' required fullWidth id="email" label="Senha"
-                name="senha"
-                autoComplete="senha"
-                autoFocus/>
-            </form>
-            <Button type='submit' fullWidth variant='contained' className={classes.submit}>
-              Entrar</Button>
-          </div>        
-        </Container>
-      </div>
-      <Footer />
-    </Fragment>
-  );
+  export default function Login() {
+  const classes = useStyles(); 
+    
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function logar(){
+    api.post('users/login', {name: 'admin@', email: email , password: password}).then(function(response){
+    switch(response.status){
+      case 200:
+        alert('Bem vindo');
+        break;
+        case 404:
+          alert('Usuario ou Senha invalidos');
+          break;
+          case 400:
+            alert('A senha precisa ser no minimo 6 caracteres');
+            break;
+            default:
+              alert('Erro ao acessar');
+              break;
+    }
+    });
+  }
+
+    return(
+      <Fragment>   
+        <Header />
+        <div className={classes.root}>
+          <CssBaseline />
+          <Container component='main' maxWidth='xs' className={classes.main}>
+            <div className={classes.paper}>
+              <Typography component='h1' variant='h4'>Tela de Login</Typography>
+              <form className={classes.form} noValidate >
+                <TextField variant='outlined' margin='normal'  required fullWidth id="email" label="Endereço de Email"
+                  name="email"
+                  onChange={e => setEmail(e.target.value)}
+                  autoComplete="email"
+                  autoFocus/>
+                <TextField variant='outlined' margin='normal'  required fullWidth id="senha" label="Senha"
+                  name="senha"
+                  onChange={e => setPassword(e.target.value)}
+                  autoComplete="senha"
+                  autoFocus/>
+              </form>
+              <Button onClick={logar} type='submit' fullWidth variant='contained' className={classes.submit}>
+                Entrar</Button>
+            </div>        
+          </Container>
+        </div>
+        <Footer />
+      </Fragment>
+    );
 }

@@ -4,9 +4,9 @@ import { CssBaseline, Container, Typography, makeStyles } from '@material-ui/cor
 const useStyles = makeStyles((theme) =>({
   footer: {
     padding: theme.spacing(3, 2),
-    marginTop: 'auto',
+    marginTop: 130,
     backgroundColor: '#00008B',
-    color: '#fff',
+    color: '#fff',    
   },
   typography: {
     textAlign: 'center',
