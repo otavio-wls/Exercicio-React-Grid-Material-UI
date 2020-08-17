@@ -32,32 +32,37 @@ const useStyles = makeStyles((theme) =>({
   }
 }))
 
-  export default function Login() {
+export default function Login() {
   const classes = useStyles(); 
     
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  function logar(){
-    api.post('users/login', {name: 'admin@', email: email , password: password}).then(function(response){
-    switch(response.status){
-      case 200:
-        alert('Bem vindo');
-        break;
-        case 404:
-          alert('Usuario ou Senha invalidos');
-          break;
-          case 400:
-            alert('A senha precisa ser no minimo 6 caracteres');
-            break;
-            default:
-              alert('Erro ao acessar');
-              break;
+  function logar(){    
+    if(email.length ===0 || password.length === 0 ){
+      alert('Os campos não podem ficarm em branco');      
+      return;
     }
+    api.post('users/login', {name: 'admin@', email: email , password: password})
+    .then(function(response){
+      alert(`Seja Bem Vindo ${response.data.user.name}`);    
+      console.log(response.data.token);
+      localStorage.setItem('token', response.data.token);
+            
+            
+    }).catch((err) => {
+      if(err.response.status === 400){
+        alert('Usuario ou Senha Inválidos');
+      }else{
+        alert(err.response.status);
+      }
     });
+    return logar();
   }
 
-    return(
+
+  return(
       <Fragment>   
         <Header />
         <div className={classes.root}>
@@ -65,7 +70,7 @@ const useStyles = makeStyles((theme) =>({
           <Container component='main' maxWidth='xs' className={classes.main}>
             <div className={classes.paper}>
               <Typography component='h1' variant='h4'>Tela de Login</Typography>
-              <form className={classes.form} noValidate >
+              <form className={classes.form} noValidate>
                 <TextField variant='outlined' margin='normal'  required fullWidth id="email" label="Endereço de Email"
                   name="email"
                   onChange={e => setEmail(e.target.value)}
@@ -84,5 +89,5 @@ const useStyles = makeStyles((theme) =>({
         </div>
         <Footer />
       </Fragment>
-    );
+  );
 }
